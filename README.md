@@ -1,8 +1,8 @@
-## Demo
-[Play the game online](https://nj4x.github.io/web_snake/)
-
 # Web Snake Game
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
+## Demo
+[Play the game online](https://nj4x.github.io/web_snake/)
 
 ## Overview
 A modern, responsive implementation of the classic Snake game built with HTML5, CSS3, and JavaScript. This web-based game offers smooth gameplay, responsive design, and modern visuals.
