@@ -174,31 +174,10 @@ document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('difficulty-medium').addEventListener('click', () => setDifficulty('medium'));
     document.getElementById('difficulty-hard').addEventListener('click', () => setDifficulty('hard'));
 
-    // Create music toggle button if it doesn't exist
-    if (!document.getElementById('music-toggle')) {
-        const musicToggle = document.createElement('button');
-        musicToggle.id = 'music-toggle';
-        musicToggle.className = 'option-button';
-        musicToggle.textContent = 'Music: Off';
+    // Add event listener for music toggle button (now in HTML)
+    const musicToggle = document.getElementById('music-toggle');
+    if (musicToggle) {
         musicToggle.addEventListener('click', toggleBackgroundMusic);
-
-        // Find a place to add the music toggle button
-        const optionGroups = document.querySelectorAll('.option-group');
-        if (optionGroups.length > 0) {
-            // Create a new option group for audio controls
-            const audioGroup = document.createElement('div');
-            audioGroup.className = 'option-group';
-            audioGroup.innerHTML = '<h3>Audio Settings</h3>';
-
-            const audioButtons = document.createElement('div');
-            audioButtons.className = 'option-buttons';
-            audioButtons.appendChild(musicToggle);
-
-            audioGroup.appendChild(audioButtons);
-
-            // Add after the last option group
-            optionGroups[optionGroups.length - 1].parentNode.appendChild(audioGroup);
-        }
     }
 });
 
@@ -1020,6 +999,7 @@ function toggleBackgroundMusic() {
 
         isMusicPlaying = true;
         if (musicToggle) musicToggle.textContent = 'Music: On';
+        document.querySelector('.volume-control').style.display = 'block';
     } else {
         // Stop playing music
         if (backgroundMusic) {
@@ -1031,6 +1011,7 @@ function toggleBackgroundMusic() {
 
         isMusicPlaying = false;
         if (musicToggle) musicToggle.textContent = 'Music: Off';
+        document.querySelector('.volume-control').style.display = 'none';
     }
 }
 // Event listener for window resize
