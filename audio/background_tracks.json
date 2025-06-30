@@ -1,0 +1,32 @@
+{
+  "tracks": [
+    {
+      "name": "Playful Adventure",
+      "file": "playful_adventure.mp3",
+      "artist": "Lesfm",
+      "license": "Creative Commons 0",
+      "source": "https://pixabay.com/music/beats-playful-adventure-158791/"
+    },
+    {
+      "name": "Arcade Game Loop",
+      "file": "arcade_game_loop.mp3",
+      "artist": "Lesiakower",
+      "license": "Creative Commons 0",
+      "source": "https://pixabay.com/music/video-games-arcade-game-loop-73857/"
+    },
+    {
+      "name": "8-bit Adventure",
+      "file": "8bit_adventure.mp3",
+      "artist": "David Renda",
+      "license": "Creative Commons 0",
+      "source": "https://pixabay.com/music/video-games-8-bit-adventure-142028/"
+    },
+    {
+      "name": "Digital Smoke",
+      "file": "digital_smoke.mp3",
+      "artist": "ONOYCHENKOMUSIC",
+      "license": "Creative Commons 0",
+      "source": "https://pixabay.com/music/video-games-digital-smoke-164370/"
+    }
+  ]
+}
