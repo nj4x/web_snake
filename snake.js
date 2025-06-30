@@ -951,58 +951,27 @@ let isMusicPlaying = false;
 let currentTrackIndex = 0;
 
 // Background music tracks
-let BACKGROUND_TRACKS = [];
+let BACKGROUND_TRACKS = [
+    { name: "Playful Adventure", file: "audio/playful_adventure.mp3" },
+    { name: "Arcade Game Loop", file: "audio/arcade_game_loop.mp3" },
+    { name: "8-bit Adventure", file: "audio/8bit_adventure.mp3" },
+    { name: "Digital Smoke", file: "audio/digital_smoke.mp3" }
+];
 let musicEnabled = false;
-
-// Load background tracks from JSON file
-function loadBackgroundTracks() {
-    try {
-        // First try to load from the JSON file
-        fetch('audio/background_tracks.json')
-            .then(response => response.json())
-            .then(data => {
-                if (data && data.tracks && data.tracks.length > 0) {
-                    BACKGROUND_TRACKS = data.tracks;
-                    console.log('Loaded', BACKGROUND_TRACKS.length, 'background tracks');
-                } else {
-                    // Fallback to hardcoded tracks
-                    fallbackToHardcodedTracks();
-                }
-            })
-            .catch(error => {
-                console.error('Error loading background tracks JSON:', error);
-                fallbackToHardcodedTracks();
-            });
-    } catch (e) {
-        console.error('Error in loadBackgroundTracks:', e);
-        fallbackToHardcodedTracks();
-    }
-}
-
-// Fallback to hardcoded tracks if JSON loading fails
-function fallbackToHardcodedTracks() {
-    console.log('Using hardcoded background tracks');
-    BACKGROUND_TRACKS = [
-        { name: "Playful Adventure", file: "playful_adventure.mp3" },
-        { name: "Arcade Game Loop", file: "arcade_game_loop.mp3" },
-        { name: "8-bit Adventure", file: "8bit_adventure.mp3" },
-        { name: "Digital Smoke", file: "digital_smoke.mp3" }
-    ];
-}
 
 // Function to load and play background music
 function loadBackgroundTracks() {
     // Try to load the first track
-    backgroundMusic = new Audio(musicTracks[0].file);
+    backgroundMusic = new Audio(BACKGROUND_TRACKS[0].file);
 
     // Set up event listeners for audio
     backgroundMusic.addEventListener('error', function(e) {
         console.warn('Failed to load audio file:', e);
 
         // Try the next track if this one fails
-        if (currentTrackIndex < musicTracks.length - 1) {
+        if (currentTrackIndex < BACKGROUND_TRACKS.length - 1) {
             currentTrackIndex++;
-            backgroundMusic.src = musicTracks[currentTrackIndex].file;
+            backgroundMusic.src = BACKGROUND_TRACKS[currentTrackIndex].file;
         } else {
             console.warn('All audio tracks failed to load. Using fallback music.');
             // Try to use fallback synthesized music if available
@@ -1015,8 +984,8 @@ function loadBackgroundTracks() {
     // When track ends, play the next one
     backgroundMusic.addEventListener('ended', function() {
         // Move to next track in playlist
-        currentTrackIndex = (currentTrackIndex + 1) % musicTracks.length;
-        backgroundMusic.src = musicTracks[currentTrackIndex].file;
+        currentTrackIndex = (currentTrackIndex + 1) % BACKGROUND_TRACKS.length;
+        backgroundMusic.src = BACKGROUND_TRACKS[currentTrackIndex].file;
         backgroundMusic.play();
     });
 
@@ -1036,8 +1005,8 @@ function toggleBackgroundMusic() {
     if (!isMusicPlaying) {
         // Start playing music
         if (backgroundMusic) {
-            currentTrackIndex = (currentTrackIndex + 1) % musicTracks.length;
-            backgroundMusic.src = musicTracks[currentTrackIndex].file;
+            currentTrackIndex = (currentTrackIndex + 1) % BACKGROUND_TRACKS.length;
+            backgroundMusic.src = BACKGROUND_TRACKS[currentTrackIndex].file;
             backgroundMusic.play().catch(e => {
                 console.warn('Failed to play audio:', e);
                 // Try fallback if available
