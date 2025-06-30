@@ -41,7 +41,7 @@ const GAME_MODES = {
 
 // Default settings
 let currentDifficulty = DIFFICULTY_LEVELS.medium;
-let currentMode = GAME_MODES.classic;
+let currentMode = GAME_MODES.noWalls;
 let GAME_SPEED_INITIAL = currentDifficulty.speed; // milliseconds
 let SPEED_INCREASE_FACTOR = currentDifficulty.speedIncrease; // ms decrease per food eaten
 let MIN_GAME_SPEED = currentDifficulty.minSpeed; // minimum speed in milliseconds
@@ -612,8 +612,8 @@ function showFloatingText(text, row, col, color) {
     const containerRect = gameContainer.getBoundingClientRect();
 
     // Calculate the position relative to the container
-    const relativeLeft = canvasRect.left - containerRect.left + (col * CELL_SIZE + CELL_SIZE/2);
-    const relativeTop = canvasRect.top - containerRect.top + (row * CELL_SIZE + CELL_SIZE/2);
+    const relativeLeft =  containerRect.left + (col * CELL_SIZE);
+    const relativeTop = containerRect.top + (row * CELL_SIZE + 7 * CELL_SIZE);
 
     floatingText.style.left = `${relativeLeft}px`;
     floatingText.style.top = `${relativeTop}px`;
@@ -626,7 +626,7 @@ function showFloatingText(text, row, col, color) {
 
     // Animate and remove the text
     setTimeout(() => {
-        floatingText.style.top = `${relativeTop - 30}px`;
+        floatingText.style.top = `${relativeTop - 10}px`;
         floatingText.style.opacity = '0';
         setTimeout(() => {
             try {
@@ -1285,7 +1285,7 @@ function handleKeyPress(e) {
     if (!gameStarted) return;
 
     // Pause/Unpause game
-    if (e.key === 'p' || e.key === 'P') {
+    if (e.key === 'p' || e.key === 'P' || e.key === 'Escape') {
         togglePause();
         return;
     }
