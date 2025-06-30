@@ -5,10 +5,10 @@
 ## Overview
 A modern, responsive implementation of the classic Snake game built with HTML5, CSS3, and JavaScript. This web-based game offers smooth gameplay, responsive design, and modern visuals.
 
-![Snake Game Screenshot](https://via.placeholder.com/800x400?text=Snake+Game+Screenshot)
+![Snake Game Screenshot](img.png)
 
 ## Demo
-[Play the game online](https://github.com/yourusername/web_snake) (replace with actual demo link when available)
+[Play the game online](https://nj4x.github.io/web_snake/) (replace with actual demo link when available)
 
 ## Features
 - Classic snake gameplay mechanics
@@ -67,7 +67,7 @@ On mobile devices, you can control the snake using swipe gestures in any of the 
 ## Installation
 1. Clone this repository:
    ```
-   git clone https://github.com/yourusername/web_snake.git
+   git clone https://github.com/nj4x/web_snake.git
    ```
 2. Open `index.html` in your browser
 

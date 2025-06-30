@@ -2,13 +2,13 @@
 # Code owners are automatically requested for review when someone opens a PR that modifies code they own
 
 # Default owners for everything in the repo
-* @yourusername
+* @nj4x
 
 # Owners of specific files
-*.js @yourusername
-*.css @yourusername
-*.html @yourusername
+*.js @nj4x
+*.css @nj4x
+*.html @nj4x
 
 # Owners for specific directories
-/.github/ @yourusername
-/audio/ @yourusername
+/.github/ @nj4x
+/audio/ @nj4x
